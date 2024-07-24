@@ -1,9 +1,28 @@
+// Debug: Log when the script starts
+console.log('Script started');
+
 const wheel = document.getElementById('wheel');
 const spinBtn = document.getElementById('spin-btn');
 const result = document.getElementById('result');
 
+// Debug: Log if elements are found
+console.log('Wheel element:', wheel);
+console.log('Spin button:', spinBtn);
+console.log('Result element:', result);
+
 const ctx = wheel.getContext('2d');
 const radius = wheel.width / 2;
+
+// Debug information
+console.log('Canvas dimensions:', wheel.width, 'x', wheel.height);
+console.log('Data:', data);
+
+// Check if data is defined and not empty
+if (!data || data.length === 0) {
+  console.error('Data is not defined or empty');
+  data = [{ name: "Default", value: 1 }];
+}
+
 const totalWeight = data.reduce((sum, item) => sum + item.value, 0);
 
 let isSpinning = false;
@@ -37,6 +56,11 @@ function drawWheel() {
 
         startAngle = endAngle;
     });
+
+    // Debug: Draw a border around the canvas
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(0, 0, wheel.width, wheel.height);
 }
 
 function rotateWheel(angle) {
@@ -60,7 +84,7 @@ function spin() {
     if (isSpinning) return;
     isSpinning = true;
     result.textContent = '';
-    
+
     const spinAngle = Math.random() * 360 + 720; // At least 2 full rotations
     const duration = 5000; // 5 seconds
     const start = performance.now();
@@ -85,5 +109,17 @@ function spin() {
     requestAnimationFrame(animate);
 }
 
+// Debug: Log when drawWheel is called
+console.log('About to call drawWheel');
 drawWheel();
-spinBtn.addEventListener('click', spin);
+console.log('drawWheel called');
+
+if (spinBtn) {
+    spinBtn.addEventListener('click', spin);
+    console.log('Spin button event listener added');
+} else {
+    console.error('Spin button not found');
+}
+
+// Debug: Log when the script ends
+console.log('Script ended');
