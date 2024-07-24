@@ -1,3 +1,4 @@
+cat << EOF > public/styles.css
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -25,11 +26,14 @@ h1 {
     width: 400px;
     height: 400px;
     margin: 2rem auto;
+    border: 1px solid #ccc; /* Debug: Add border to see container */
 }
 
 #wheel {
     transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
+    display: block; /* Ensure the canvas is displayed as a block element */
+    margin: 0 auto; /* Center the canvas */
+    }
 
 #selector {
     position: absolute;
@@ -44,7 +48,7 @@ h1 {
 }
 
 #spin-btn {
-    background-color: #4CAF50;
+    background-color: #db000b;
     border: none;
     color: white;
     padding: 15px 32px;
