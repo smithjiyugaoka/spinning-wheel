@@ -1,3 +1,20 @@
+console.log('Script started');
+
+const wheel = document.getElementById('wheel');
+const spinBtn = document.getElementById('spin-btn');
+const result = document.getElementById('result');
+
+console.log('Wheel element:', wheel);
+console.log('Spin button:', spinBtn);
+console.log('Result element:', result);
+
+const ctx = wheel.getContext('2d');
+
+// Draw a simple shape to test if the canvas is working
+ctx.fillStyle = 'red';
+ctx.fillRect(0, 0, 100, 100);
+console.log('Red square should be drawn');
+
 // Debug: Log when the script starts
 console.log('Script started');
 
