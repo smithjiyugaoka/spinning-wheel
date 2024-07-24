@@ -1,4 +1,3 @@
-cat << EOF > public/script.js
 const wheel = document.getElementById('wheel');
 const spinBtn = document.getElementById('spin-btn');
 const result = document.getElementById('result');
@@ -24,7 +23,7 @@ function drawWheel() {
         ctx.arc(centerX, centerY, radius, startAngle, endAngle);
         ctx.closePath();
 
-        ctx.fillStyle = \`hsl(\${index * (360 / data.length)}, 70%, 60%)\`;
+        ctx.fillStyle = `hsl(${index * (360 / data.length)}, 70%, 60%)`;
         ctx.fill();
 
         ctx.save();
@@ -41,7 +40,7 @@ function drawWheel() {
 }
 
 function rotateWheel(angle) {
-    wheel.style.transform = \`rotate(\${angle}deg)\`;
+    wheel.style.transform = `rotate(${angle}deg)`;
 }
 
 function getResult(angle) {
@@ -61,7 +60,7 @@ function spin() {
     if (isSpinning) return;
     isSpinning = true;
     result.textContent = '';
-
+    
     const spinAngle = Math.random() * 360 + 720; // At least 2 full rotations
     const duration = 5000; // 5 seconds
     const start = performance.now();
@@ -78,7 +77,7 @@ function spin() {
             requestAnimationFrame(animate);
         } else {
             const selectedName = getResult(spinAngle);
-            result.textContent = \`Result: \${selectedName}\`;
+            result.textContent = `Result: ${selectedName}`;
             isSpinning = false;
         }
     }
@@ -88,4 +87,3 @@ function spin() {
 
 drawWheel();
 spinBtn.addEventListener('click', spin);
-EOF

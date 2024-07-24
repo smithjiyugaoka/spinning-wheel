@@ -13,4 +13,3 @@ const data = [
     // ... (add all 100 names here)
     { name: "Vance", value: 4 }
 ];
-EOF
