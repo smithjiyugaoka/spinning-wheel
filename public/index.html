@@ -8,15 +8,10 @@ cat << EOF > public/index.html
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Spinning Wheel</h1>
-        <div class="wheel-container">
-            <canvas id="wheel" width="400" height="400"></canvas>
-            <div id="selector"></div>
-        </div>
-        <button id="spin-btn">Spin</button>
-        <div id="result"></div>
-    </div>
+    <h1>Spinning Wheel App</h1>
+    <div id="wheel"></div>
+    <button id="spin">Spin</button>
+    <div id="result"></div>
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
